@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SOC Wall</title>
+<meta name="description" content="A generative security-operations wall: simulated incidents flow through alert, triage, enrichment and automated response.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="c" aria-label="Animated security pipeline simulation"></canvas>
+<div class="scan" aria-hidden="true"></div>
+
+<header id="top">
+  <div class="brand"><span class="logo" data-t="SOC WALL">SOC WALL</span><span class="badge">SIMULATION &middot; NO REAL DATA</span></div>
+  <div class="controls">
+    <button id="bPause" title="Space">Pause</button>
+    <div class="seg" id="speed" role="group" aria-label="Speed">
+      <button data-s="0.5">0.5&times;</button><button data-s="1" class="on">1&times;</button><button data-s="2">2&times;</button><button data-s="4">4&times;</button>
+    </div>
+    <button id="bChaos" class="hot" title="C">&#9889; Chaos</button>
+    <button id="bSeed" title="New seed">Seed <b id="seedv">0</b></button>
+    <button id="bFull" title="F">Fullscreen</button>
+  </div>
+</header>
+
+<div id="log" aria-live="off"></div>
+
+<aside id="panel" hidden>
+  <button id="pClose" aria-label="Close">&times;</button>
+  <div class="k" id="pKind"></div>
+  <h2 id="pTitle"></h2>
+  <p id="pWhat"></p>
+  <h3>In this simulation</h3>
+  <p id="pSim"></p>
+  <div class="stats" id="pStats"></div>
+  <h3>Related work by the author</h3>
+  <a id="pLink" target="_blank" rel="noopener"></a>
+  <p class="note" id="pNote"></p>
+</aside>
+
+<footer id="bar">
+  <div class="metrics">
+    <div class="m"><span>MTTR</span><b id="mMttr">--</b><i>sim</i></div>
+    <div class="m"><span>ALERTS / MIN</span><b id="mRate">--</b><i>sim</i></div>
+    <div class="m"><span>AUTO-CLOSED</span><b id="mAuto">--</b><i>sim</i></div>
+    <div class="m"><span>IN FLIGHT</span><b id="mOpen">0</b><i>sim</i></div>
+    <div class="m"><span>HUMAN QUEUE</span><b id="mQ">0</b><i>sim</i></div>
+  </div>
+  <div class="about">All alerts, hosts and numbers are synthetic. Built by <a href="https://github.com/Tootenramen" target="_blank" rel="noopener">Gustavo Freitas</a> &middot; Computer Scientist, Offensive &amp; Defensive Cyber Operations &middot; <a href="https://www.linkedin.com/in/gustavo-freitas-69b93910b/" target="_blank" rel="noopener">LinkedIn</a> &middot; click any node &middot; keys: Space, C, F, 1-4</div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

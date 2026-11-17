@@ -1,0 +1,42 @@
+:root{--bg:#07080b;--y:#ffd400;--c:#00e5ff;--m:#ff2e88;--t:#e8eaf0;--d:#7c8493;--line:#1c212b}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--t);font-family:'Space Grotesk',system-ui,sans-serif;overflow:hidden}
+canvas{position:fixed;inset:0;width:100%;height:100%;display:block}
+.scan{position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px),radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.65) 100%)}
+header{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px clamp(12px,2vw,28px);flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{font-weight:700;font-size:clamp(20px,2.4vw,30px);letter-spacing:.12em;color:var(--y);text-shadow:2px 0 var(--m),-2px 0 var(--c);animation:gl 6s infinite}
+@keyframes gl{0%,92%,100%{text-shadow:2px 0 var(--m),-2px 0 var(--c)}94%{text-shadow:-6px 0 var(--m),6px 0 var(--c);transform:translateX(3px)}96%{text-shadow:6px 0 var(--m),-6px 0 var(--c);transform:translateX(-3px)}}
+.badge{font:700 11px 'JetBrains Mono',monospace;letter-spacing:.08em;color:var(--bg);background:var(--y);padding:4px 8px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+button{font:700 12px 'JetBrains Mono',monospace;letter-spacing:.04em;color:var(--t);background:rgba(10,12,16,.8);border:1px solid #2a303c;padding:8px 12px;cursor:pointer;transition:.15s}
+button:hover,button:focus-visible{border-color:var(--c);color:var(--c);outline:none}
+button.hot{border-color:var(--m);color:var(--m)}button.hot:hover{background:var(--m);color:var(--bg)}
+button.on{background:var(--y);color:var(--bg);border-color:var(--y)}
+.seg{display:flex}.seg button{margin-left:-1px}
+#bSeed b{color:var(--y)}
+#log{position:fixed;left:clamp(12px,2vw,28px);bottom:118px;max-width:min(62vw,720px);font:400 12px/1.55 'JetBrains Mono',monospace;color:var(--d);pointer-events:none;text-shadow:0 0 6px #000}
+#log div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;animation:in .4s}
+#log .hi{color:var(--m)}#log .ok{color:var(--c)}#log .hm{color:var(--y)}
+@keyframes in{from{opacity:0;transform:translateX(-8px)}}
+footer{position:fixed;left:0;right:0;bottom:0;padding:10px clamp(12px,2vw,28px) 12px;background:linear-gradient(transparent,rgba(7,8,11,.92) 35%)}
+.metrics{display:flex;gap:clamp(10px,2.4vw,36px);flex-wrap:wrap;margin-bottom:8px}
+.m{display:flex;flex-direction:column;border-left:2px solid var(--y);padding-left:10px;min-width:88px}
+.m span{font:400 10px 'JetBrains Mono',monospace;color:var(--d);letter-spacing:.1em}
+.m b{font:700 clamp(20px,2.4vw,32px) 'Space Grotesk';color:var(--t);font-variant-numeric:tabular-nums}
+.m i{font:400 9px 'JetBrains Mono',monospace;color:var(--m);font-style:normal;letter-spacing:.1em}
+.about{font:400 11px 'JetBrains Mono',monospace;color:var(--d)}
+.about a,#pLink{color:var(--c);text-decoration:none;border-bottom:1px solid rgba(0,229,255,.35)}
+.about a:hover,#pLink:hover{color:var(--y)}
+#panel{position:fixed;top:76px;right:clamp(10px,2vw,24px);width:min(380px,calc(100vw - 20px));max-height:calc(100vh - 210px);overflow:auto;background:rgba(8,10,14,.94);border:1px solid var(--y);padding:20px 22px;box-shadow:0 0 40px rgba(255,212,0,.12);animation:in .25s}
+#panel[hidden]{display:none}
+#pClose{position:absolute;top:6px;right:8px;border:0;font-size:22px;padding:2px 8px;background:none}
+.k{font:700 10px 'JetBrains Mono',monospace;letter-spacing:.14em;color:var(--m)}
+#panel h2{margin:4px 0 10px;font-size:26px;color:var(--y)}
+#panel h3{font:700 10px 'JetBrains Mono',monospace;letter-spacing:.14em;color:var(--d);margin:16px 0 4px;text-transform:uppercase}
+#panel p{margin:0;font-size:14px;line-height:1.55;color:#cfd3dc}
+.stats{display:flex;gap:18px;margin-top:12px;font:400 11px 'JetBrains Mono',monospace;color:var(--d)}
+.stats b{display:block;font:700 20px 'Space Grotesk';color:var(--c)}
+.note{font-size:12px!important;color:var(--d)!important;margin-top:8px!important}
+@media (max-width:700px){#log{display:none}.about{font-size:9px}#panel{top:auto;bottom:130px;max-height:50vh}}
+@media (prefers-reduced-motion:reduce){.logo{animation:none}}
